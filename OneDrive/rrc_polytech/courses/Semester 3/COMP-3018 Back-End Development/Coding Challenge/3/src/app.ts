@@ -6,6 +6,18 @@ app.use(express.json());
 
 app.use("/api/v1/tasks", taskRoutes);
 
+const express = require("express");
+const app = express();
+const taskRoutes = require("./taskRoutes");
+const errorHandler = require("./errorHandler");
+
+app.use(express.json());
+app.use("/tasks", taskRoutes);
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server runni
+
 /**
  * Global error handler.
  */
